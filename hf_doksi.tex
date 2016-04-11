@@ -1,0 +1,218 @@
+\documentclass[11pt]{article}\usepackage[left=20mm,right=20mm,top=15mm,bottom=20mm]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[magyar]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{multirow}
+\usepackage{makeidx}
+\usepackage[]{mcode}
+\usepackage{placeins}
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+%\DeclareUnicodeCharacter{00A0}{~}
+
+\begin{document}
+\begin{titlepage}
+\centering
+	\includegraphics[width=0.5\textwidth]{figures/bme_logo_kicsi.eps}\par\vspace{1cm}
+	\vspace{1cm}
+	\vspace{1.5cm}
+	{\huge\bfseries Szoftvertervezés 1. házi feladat \par}
+	\vspace{15cm}
+	{\huge\itshape Locskai Norbert, Kovács András, Barancsuk Lilla \par}
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+\section{Vízió}
+\subsection{FEJLÉC!!!!!!!}
+
+\subsection{Bevezetés}
+A Service4U cég berendezések szervizelésével foglalkozik. Az Device4U nemzetközi cég által
+gyártott berendezések szervizelését végzi Magyarországon. A Service4U cég az alkatrészeket
+kizárólag a Device4U cégtől szerzi be.
+A Service4U vezető egy olyan számítógépes rendszert szeretnének, mely segítségével képesek
+lesznek a raktárban tárolt alkatrész készletet nyomon követni, a rendelés, felhasználás, szállítás, ill.
+leltározás folyamatait támogatni.
+
+\subsubsection{Megoldandó probléma}
+Az alkatrészeket a Service4U cég raktáron tartja, arra törekszik, hogy minden alkatrészből legyen a
+raktáron legalább két darab. Amikor az alkatrészeket a Service4U megrendeli, azokat mindig
+azonos szállító cég szállítja szállítólevéllel. Minden szállításhoz egy szállítólevél tartozik és minden
+szállításban egy adott rendelésből származó alkatrészek vannak. Az alkatrészek rendelését a cég
+vezetői végzik.
+Az alkatrészeket a Service4U cég szerelői vételezik ki a raktárból egy-egy berendezés javítása
+során. A javításról minden esetben munkalap készül, mely tartalmazza a javításhoz felhasznált
+alkatrészek listáját. A szerelő önállóan végzik egy-egy berendezés javítását.
+Service4U cég vezető félévente leltározást végeznek a raktárban, amikor elkészítik azt a listát, ami a
+raktárban levő alkatrészek listáját tartalmazza.
+A Device4U viszonylak kevés különböző berendezést gyárt és azok évente változnak, azonos
+alkatrészeket tartalmaznak, egy-egy berendezés sok alkatrészből állhat.
+
+\subsection{Érdekeltek köre - stakeholderek + céljaik}
+\begin{itemize}
+\item[szerelő] :A szerelő az, aki végzi a gépek javítását. A rendszer segítségével szeretné meggyorsítani az elvégzett munka dokumentálását. (Mennyi alkatrészt használt fel.)
+\item[] raktáros
+\item[rendszergazda]
+\item[vezető]: Ő viszi be az új alkatrészeket is.
+\end{itemize}
+
+\subsection{Rendszer részei}
+\begin{itemize}
+\item[] adatbázis: nyilvántartás
+\item[] köztes rész: adatbázist és grafikus felületet összekötő interfész
+\item[] GUI
+\item[] azonosítófelület
+\item[] lehetőség távoli hozzáférésre (helyi hálózat, internet)
+\item[] vonalkódleolvasó - vonalkódfeldolgozó
+\end{itemize}
+
+\subsection{Rendszer korlátai, határai}
+\subsubsection{Mit nem csinál?}
+Nem automatizált a raktár feltöltése-ürítése, leltározás, raktáros csinálja.
+Kollégák nyilvántartását nem veszi át automatikusan a céges rendszerből, kézzel kell bevinni az azonosítójukat.
+Nem a rendszer feladata a rendelés elküldése, csak generálása.
+
+\subsubsection{Technológiai korlátok}
+Egy szerver van, mindenki böngészőn keresztül lép be...
+(Autentikáció nem kell helyi gépről)
+
+
+\section{Fogalomszótár - glossary}
+\begin{itemize}
+\item[berendezés]......
+\item[alkatrész]
+\item[szerelő]
+\item[cégvezető]
+\item[raktáros]
+\item[szállítólevél]
+\item[munkalap]
+\item[rendszergazda]
+\item[rendelés]
+\item[leltározás]
+\item[jelenéts]
+\end{itemize}
+
+\section{Kiegészítő követelmények leírása - supplementary specification}
+\subsection{FEJLÉC}
+
+\subsection{Bevezetés}
+Röviden a rendszer célja, ezért kell, hogy a rendszer...
+
+\subsection{Usability}
+GUI egyszerű, ergonomikus
+
+\subsection{Reliability}
+Backlog az adatbázisban, rendszeres mentés, követhető, hogy
+ki mikor mit csinált. Visszaállíthatóság. 
+Munkanapokon éjfélkor készül egy biztonsági mentés,
+
+\subsection{Performance}
+Sok alkatrész: max 1000 féle alkatrészt tárol, max 1000 db mindegyikből. Rendszer max 500 féle gép alkatrészeit ismeri. Egy gép max 200 alkatrszéből állhat. Egyszerre max 10-en férhetnek hozzá a rendszerhez. 
+
+\subsection{Supportability}
+Adatbázis bővíthető legyen, grafikus interfész tetszőlegesen változtatható a használt böngésző korlátai között.
+A cég vállalja a rendszeres karbantartást. (félévente randszeresen, igény szerint - telefonos support)
+
+\subsection{Implementation constraints}
+Legelterjedtebb böngészőkön (Safari, Chrome, Mozzilla, IE) működik.
+Céges PC-k. (szar az összes... korlátozott proci, memóia) Céges szerver: ... (ez is szar)
+Vonalkódleolvasó
+
+\subsection{Interfaces}
+Nem szükséges ilyennel együttműködni.
+
+\section{Use Case modell}
+\subsection{Aktorok}
+\subsubsection{Elsődleges}
+\subsubsection{Támogató}
+\subsection{Háttér}
+
+\subsection{User nyilvántartás}
+rendszergazda
+
+\subsection{Bejelentkezés}
+raktáros, rendszergazda, vezetől
+
+\subsection{Rendelés}
+- azonosító : UC1
+- aktorok: 
+- stakeholderek:
+- előfeltételek:
+- hatása: postconditions
+- basic flow:
+- alternative flow:
+- special requirements
+- technology and data variations list.... 
+- open issues
+előfeltételek: ha 2-nél kevesebb van egy alkatrészből mindenképpen, de lehet enélkül is
+
+\subsection{Automatikus értesítés}
+vezetőknek, ha nincs elég egy alkatrészből
+
+\subsection{Új gép bevitele}
+vezetők
+
+\subsection{Backlog lekérdezése}
+vezetők
+
+\subsection{Leltárazás}
+- azonosító : UC2
+- aktorok: A leltárazásban részt vesz a cégvezetés... Mit csinál?
+- stakeholderek: Raktárosok számolják össze, hogy mennyi van...
+- előfeltételek:
+- hatása: postconditions
+- basic flow:
+- alternative flow:
+- special requirements
+- technology and data variations list.... 
+- open issues
+vezetők
+
+\subsection{Megrendelés átvétele}
+raktáros
+
+\subsection{Alkatrész kiadása}
+- azonosító : UC3
+- aktorok: 
+- stakeholderek:
+- előfeltételek:
+- hatása: postconditions
+- basic flow:
+- alternative flow:
+- special requirements
+- technology and data variations list.... 
+- open issues
+
+\subsection{Biztonsági mentés készítése}
+timer csinálja
+
+\subsection{Rendszer visszaállítása}
+rendszergazda kezdeményezi
+
+%
+%\begin{figure}[!h]
+%    \centering
+%    \begin{subfigure}[b]{0.45\textwidth}
+%        \includegraphics[width=\textwidth]{figures/1_5_3_ehkul.eps}
+%        \subcaption{Torzítatlan eset.}
+%    \end{subfigure}
+%    \quad
+%    \begin{subfigure}[b]{0.45\textwidth}
+%        \includegraphics[width=\textwidth]{figures/5_feladat/ehkul.eps}
+%        \subcaption{Torzított eset.}
+%    \end{subfigure}
+%    \caption{A lineáris kombinátor és a rendszer sorfejtett átviteli fügvényének együtthatóinak különbsége torzítatlan és torzított kimenetű rendszer esetén. Az együtthatók különbsége torzított esetben jelentős, hat nagyságrenddel nagyobb, mint torzítatlan esetben.}\label{fig:5_f_ehkul}
+%\end{figure}
+
+
+\FloatBarrier
+\end{document}
