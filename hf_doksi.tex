@@ -50,21 +50,28 @@ Első verzió                                                   & \today        
 
 \subsection{Bevezetés}
 A Service4U cég berendezések szervizelésével foglalkozik. Az Device4U nemzetközi cég által
-gyártott berendezések szervizelését végzi Magyarországon. A Service4U cég az alkatrészeket
-kizárólag a Device4U cégtől szerzi be.
-A Service4U vezető egy olyan számítógépes rendszert szeretnének, mely segítségével képesek
+gyártott berendezések szervizelését végzi Magyarországon.
+A Service4U vezetői egy olyan számítógépes rendszert szeretnének, mely segítségével képesek
 lesznek a raktárban tárolt alkatrész készletet nyomon követni, a rendelés, felhasználás, szállítás, ill.
 leltározás folyamatait támogatni.
 
 \subsubsection{Megoldandó probléma}
-Az alkatrészeket a Service4U cég raktáron tartja, arra törekszik, hogy minden alkatrészből legyen a
-raktáron legalább két darab. Amikor az alkatrészeket a Service4U megrendeli, azokat mindig
-azonos szállító cég szállítja szállítólevéllel. Minden szállításhoz egy szállítólevél tartozik és minden
-szállításban egy adott rendelésből származó alkatrészek vannak. Az alkatrészek rendelését a cég
-vezetői végzik.
+A programnak nyilván kell tartania a raktárban található összes alkatrészt, illetve azokat az időpontokat, amikor a raktár tartalma változott, a változást, illetve azt, aki a változást bevitte a rendszerbe, valamint segítenie kell a rendelések összeállítását.
+
+Emiatt a rendszernek nyilván kell tartania a cég azon dolgozóit is, akik a programot használják (a vezetőség tagjait, illetve a raktárosokat, akik a rendeléseket átveszik, és az eszközöket kiadják).
+
+A program segítségével a cég vezetőinek képesnek kell lenniük rendelések összeállítására, illetve azok exportálására többféle formátumban (pdf, xls, txt).
+ 
+Mivel a Service4U minden alkatrészből legalább két darabot kíván raktáron tartani, a programnak értesítenie kell a cég vezetőségét, amennyiben bármely alkatrész száma kettő alá csökken.
+
 Az alkatrészeket a Service4U cég szerelői vételezik ki a raktárból egy-egy berendezés javítása
-során. A javításról minden esetben munkalap készül, mely tartalmazza a javításhoz felhasznált
-alkatrészek listáját. A szerelő önállóan végzik egy-egy berendezés javítását.
+során. 
+A szerelők a kivenni kívánt alkatrészeket munkalapon rögzítik, amjd azt átadják a raktárosnak. 
+A raktárosnak a rendszer segítségével képesnek kell lennie a kivétel nyilvántartására: az időpont, a szerelő, a raktáros azonosítójának, illetve a kivett alkatrészek rögzítésére.
+
+A szállítást mindig azonos szállító cég végzi, akik adott rendelést mindig egy szállítási egységként szállítják.
+A program segítségével a raktá
+
 Service4U cég vezető félévente leltározást végeznek a raktárban, amikor elkészítik azt a listát, ami a
 raktárban levő alkatrészek listáját tartalmazza.
 A Device4U viszonylak kevés különböző berendezést gyárt és azok évente változnak, azonos
