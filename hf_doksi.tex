@@ -3,6 +3,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[magyar]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[table,xcdraw]{xcolor}
+
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{siunitx}
@@ -33,7 +35,18 @@
 \end{titlepage}
 
 \section{Vízió}
-\subsection{FEJLÉC!!!!!!!}
+
+\begin{table}[]
+\centering
+\label{tab:vizio_fejlec}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Verzió}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Dátum}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Leírás}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Készítő}}             \\ \hline
+Első verzió                                                   & \today                                                      & Vízió kész                                                   & \begin{tabular}[c]{@{}l@{}}Locskai Norbert\\ Barancsuk Lilla\end{tabular} \\ \hline
+                                                              &                                                             &                                                              &                                                                           \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Bevezetés}
 A Service4U cég berendezések szervizelésével foglalkozik. Az Device4U nemzetközi cég által
@@ -59,20 +72,20 @@ alkatrészeket tartalmaznak, egy-egy berendezés sok alkatrészből állhat.
 
 \subsection{Érdekeltek köre - stakeholderek + céljaik}
 \begin{itemize}
-\item[szerelő] :A szerelő az, aki végzi a gépek javítását. A rendszer segítségével szeretné meggyorsítani az elvégzett munka dokumentálását. (Mennyi alkatrészt használt fel.)
-\item[] raktáros
-\item[rendszergazda]
-\item[vezető]: Ő viszi be az új alkatrészeket is.
+\item[] \textbf{szerelő} :A szerelő az, aki végzi a gépek javítását. A rendszer segítségével szeretné meggyorsítani az elvégzett munka dokumentálását. (Mennyi alkatrészt használt fel.)
+\item[] \textbf{raktáros}
+\item[] \textbf{rendszergazda}
+\item[] \textbf{vezető} Ő viszi be az új alkatrészeket is.
 \end{itemize}
 
 \subsection{Rendszer részei}
 \begin{itemize}
-\item[] adatbázis: nyilvántartás
-\item[] köztes rész: adatbázist és grafikus felületet összekötő interfész
-\item[] GUI
-\item[] azonosítófelület
-\item[] lehetőség távoli hozzáférésre (helyi hálózat, internet)
-\item[] vonalkódleolvasó - vonalkódfeldolgozó
+\item[] \textbf{adatbázis}: nyilvántartás
+\item[] \textbf{köztes rész}: adatbázist és grafikus felületet összekötő interfész
+\item[] \textbf{GUI}
+\item[] \textbf{azonosítófelület}
+\item[] \textbf{lehetőség távoli hozzáférésre} (helyi hálózat, internet)
+\item[] \textbf{vonalkódleolvasó} - vonalkódfeldolgozó
 \end{itemize}
 
 \subsection{Rendszer korlátai, határai}
@@ -88,21 +101,32 @@ Egy szerver van, mindenki böngészőn keresztül lép be...
 
 \section{Fogalomszótár - glossary}
 \begin{itemize}
-\item[berendezés]......
-\item[alkatrész]
-\item[szerelő]
-\item[cégvezető]
-\item[raktáros]
-\item[szállítólevél]
-\item[munkalap]
-\item[rendszergazda]
-\item[rendelés]
-\item[leltározás]
-\item[jelenéts]
+\item[]\textbf{berendezés}
+\item[]\textbf{alkatrész}
+\item[]\textbf{szerelő}
+\item[]\textbf{cégvezető}
+\item[]\textbf{raktáros}
+\item[]\textbf{szállítólevél}
+\item[]\textbf{munkalap}
+\item[]\textbf{rendszergazda}
+\item[]\textbf{rendelés}
+\item[]\textbf{leltározás}
+\item[]\textbf{jelentés}
 \end{itemize}
 
 \section{Kiegészítő követelmények leírása - supplementary specification}
-\subsection{FEJLÉC}
+
+\begin{table}[]
+\centering
+\label{tab:srs_fejlec}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Verzió}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Dátum}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Leírás}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Készítő}}             \\ \hline
+Első verzió                                                   & \today                                                      & Vízió kész                                                   & \begin{tabular}[c]{@{}l@{}}Locskai Norbert\\ Barancsuk Lilla\end{tabular} \\ \hline
+                                                              &                                                             &                                                              &                                                                           \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Bevezetés}
 Röviden a rendszer célja, ezért kell, hogy a rendszer...
@@ -155,6 +179,18 @@ raktáros, rendszergazda, vezetől
 - open issues
 előfeltételek: ha 2-nél kevesebb van egy alkatrészből mindenképpen, de lehet enélkül is
 
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=0.9\textwidth]{figures/rendeles_SD.jpg}
+        \caption{A rendelés szekvenciadiagramja.}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=0.9\textwidth]{figures/rendeles_UC.jpg}
+        \caption{A rendelés use case diagramja.}
+\end{figure}
+
 \subsection{Automatikus értesítés}
 vezetőknek, ha nincs elég egy alkatrészből
 
@@ -177,6 +213,18 @@ vezetők
 - open issues
 vezetők
 
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=0.9\textwidth]{figures/leltarazas_SD.jpg}
+        \caption{A leltározás szekvenciadiagramja.}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=0.9\textwidth]{figures/leltarazas_UC.jpg}
+        \caption{A leltározás use case diagramja.}
+\end{figure}
+
 \subsection{Megrendelés átvétele}
 raktáros
 
@@ -192,26 +240,26 @@ raktáros
 - technology and data variations list.... 
 - open issues
 
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=0.9\textwidth]{figures/alkatresz_kiadas_SD.jpg}
+        \caption{Az alkatrész kiadás szekvenciadiagramja.}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=0.9\textwidth]{figures/alkatresz_kiadas_UC.jpg}
+        \caption{Az alkatrész kiadás use case diagramja.}
+\end{figure}
+
 \subsection{Biztonsági mentés készítése}
 timer csinálja
 
 \subsection{Rendszer visszaállítása}
 rendszergazda kezdeményezi
 
-%
-%\begin{figure}[!h]
-%    \centering
-%    \begin{subfigure}[b]{0.45\textwidth}
-%        \includegraphics[width=\textwidth]{figures/1_5_3_ehkul.eps}
-%        \subcaption{Torzítatlan eset.}
-%    \end{subfigure}
-%    \quad
-%    \begin{subfigure}[b]{0.45\textwidth}
-%        \includegraphics[width=\textwidth]{figures/5_feladat/ehkul.eps}
-%        \subcaption{Torzított eset.}
-%    \end{subfigure}
-%    \caption{A lineáris kombinátor és a rendszer sorfejtett átviteli fügvényének együtthatóinak különbsége torzítatlan és torzított kimenetű rendszer esetén. Az együtthatók különbsége torzított esetben jelentős, hat nagyságrenddel nagyobb, mint torzítatlan esetben.}\label{fig:5_f_ehkul}
-%\end{figure}
+
+
 
 
 \FloatBarrier
