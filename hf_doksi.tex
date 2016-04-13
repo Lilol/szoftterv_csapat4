@@ -52,7 +52,7 @@ Első verzió                                                   & \today        
 A Service4U cég berendezések szervizelésével foglalkozik. Az Device4U nemzetközi cég által
 gyártott berendezések szervizelését végzi Magyarországon.
 A Service4U vezetői egy olyan számítógépes rendszert szeretnének, mely segítségével képesek
-lesznek a raktárban tárolt alkatrész készletet nyomon követni, a rendelés, felhasználás, szállítás, ill.
+lesznek a raktárban tárolt alkatrész készletet nyomon követni, a rendelés, felhasználás, szállítás, illetve
 leltározás folyamatait támogatni.
 
 \subsubsection{Megoldandó probléma}
@@ -68,7 +68,7 @@ Mivel a Service4U minden alkatrészből legalább két darabot kíván raktáron
 
 Az alkatrészeket a Service4U cég szerelői vételezik ki a raktárból egy-egy berendezés javítása
 során. 
-A szerelők a kivenni kívánt alkatrészeket munkalapon rögzítik, amjd azt átadják a raktárosnak. 
+A szerelők a kivenni kívánt alkatrészeket munkalapon rögzítik, majd azt átadják a raktárosnak. 
 A raktárosnak a rendszer segítségével képesnek kell lennie a kivétel nyilvántartására: az időpont, a szerelő, a raktáros azonosítójának, illetve a kivett alkatrészek rögzítésére.
 
 A szállítást mindig azonos szállító cég végzi, akik adott rendelést mindig egy szállítási egységként szállítják.
@@ -81,7 +81,7 @@ A rendszernek alkalmasnak kell lennie arra, hogy az adatbázisban lévő alkatr�
 
 \subsection{Érdekeltek köre - stakeholderek}
 \begin{itemize}
-\item[] \textbf{vezető: } A vezető végzi az alkatrészek megrendelését, kezdeményezi a leltározást, továbbá bevihet új berendezéseket az adatbázisba. Célja a raktár kiürülésének mgakadályozása, valamint a fent említett munkafolyamatok gyorsítása, automatizálása.
+\item[] \textbf{vezető: } A vezető végzi az alkatrészek megrendelését, kezdeményezi a leltározást, továbbá bevihet új berendezéseket az adatbázisba. Célja a raktár kiürülésének megakadályozása, valamint a fent említett munkafolyamatok gyorsítása, automatizálása.
 
 \item[] \textbf{szerelő: } A szerelő végzi a gépek javítását, e célból alkatrészeket kér ki a raktárból.  Célja, hogy a szükséges alkatrészek rendelkezésre álljanak, valamint hogy a kivétel gyors legyen.
 
@@ -119,7 +119,7 @@ A cég számítógépparkja technológiai korlátokat állít a rendszer elé.
 Szerverként egyetlen gép áll rendelkezésre, amely csak korlátozott számú kérést tud egyszerre kiszolgálni. 
 A kollégák által használt számítógépek elavult, asztali gépek korlátos erőforrásokkal, továbbá programok telepítésére és törlésére csak a rendszergazdának van jogosultsága.
 
-\section{Fogalomszótár - glossary}
+\section{Fogalomszótár}
 \begin{itemize}
 \item[]\textbf{berendezés: } A cég által szervizelt gép.
 
@@ -144,7 +144,7 @@ A kollégák által használt számítógépek elavult, asztali gépek korlátos
 \item[]\textbf{jelentés: } A leltározás során készült dokumentum, ami összehasonlítható formában tartalmazza a fizikai számlálás és az elektronikus nyilvántartás eredményeit.
 \end{itemize}
 
-\section{Kiegészítő követelmények leírása - supplementary specification}
+\section{Kiegészítő követelmények leírása}
 
 \begin{table}[]
 \centering
@@ -162,12 +162,12 @@ Első verzió                                                   & \today        
 Mivel a rendszer egy raktár nyilvántartását végzi, ezért szükséges, hogy adatbázis mindig tükrözze a tényleges raktárkészletet, megkönnyítse az adminisztrációt és a leltározást.
 
 \subsection{Használhatóság}
-Mivel az egyszerű felhasználók nem jártasak az adatbáziskezelésben, a grafikus felület ergonomikus és intuitív lehetőséget biztosít ennek kezelésére.
+Mivel az egyszerű felhasználók nem jártasak az adatbázis-kezelésben, a grafikus felület ergonomikus és intuitív lehetőséget biztosít ennek kezelésére.
 
 \subsection{Megbízhatóság}
 A adatbázisban állapotainak visszaállíthatónak kell lenniük, hiba után is. 
 Ezért az adatbázisról rendszeresen (minden munkanapon éjfélkor) mentés készül.
-Valamint naplózás segítségével a változások nyomonkövethetők.
+Valamint naplózás segítségével a változások nyomon követhetők.
 
 \subsection{Teljesítmény}
 Az adatbázisnak képesnek kell lennie nagyszámú adat tárolására. 
@@ -204,7 +204,7 @@ A szoftvernek nem szükséges külső rendszerekkel együttműködni.
 
 \section{Use Case modell}
 \subsection{Aktorok}
-\subsubsection{Elsődleges}
+\subsubsection{Elsődleges aktorok}
 \begin{itemize}
 \item[•] \textbf{vezetők: }  A célja az alkatrészek megrendelése, leltározás kezdeményezése, továbbá új berendezések bevitele az adatbázisba, a raktár kiürülésének mgakadályozása. Elvárása a rendszerrel kapcsolatban, hogy a fent említett folyamatokat automatizáltan, gyorsan végrehajtsa.
  
@@ -216,7 +216,7 @@ Szeretne időben értesítést kapni a leltár elkezdéséről.
 \item[•] \textbf{rendszergazda: } Célja, hogy a rendszer egyszerűen karbantartható, visszaállítható és bővíthető legyen.
 \end{itemize}
 
-\subsubsection{Támogató}
+\subsubsection{Támogató aktorok}
 \begin{itemize}
 \item[•] \textbf{raktáros: } Célja, hogy a szerelőktől vagy a vezetőségtől érkező kéréseket gyorsan kiszolgálja, valamint egyszerűen intézze az alkatrészek átvételét.
 Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
@@ -252,8 +252,8 @@ Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 \begin{enumerate}
 \item Igény merül fel valamilyen típusú alkatrészre.
 \item A vezető bejelentkezik.
-\item A vezető megnyitja a rendelésösszeállító ablakot.
-\item A vezető alkatrészt ad hozzá a rendeléshez, beállítja a rendelni kívánt alktrész darabszámát.
+\item A vezető megnyitja a rendelés-összeállító ablakot.
+\item A vezető alkatrészt ad hozzá a rendeléshez, beállítja a rendelni kívánt alkatrész darabszámát.
 \textit{A vezető az előző lépést a rendelés teljes összeállításáig ismétli.}
 \item A vezető exportálja az elkészült listát valamilyen formátumban (pdf, szöveg, táblázat).
 \item A vezető kilép a rendszerből.
@@ -272,23 +272,22 @@ Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=0.9\textwidth]{figures/rendeles_SD.jpg}
-        \caption{A rendelés szekvenciadiagramja.}
+        \includegraphics[width=0.7\textwidth]{figures/rendeles_UC.jpg}
+        \caption{A rendelés use case diagramja.}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=0.9\textwidth]{figures/rendeles_UC.jpg}
-        \caption{A rendelés use case diagramja.}
+        \includegraphics[width=0.7\textwidth]{figures/rendeles_SD.jpg}
+        \caption{A rendelés szekvenciadiagramja.}
 \end{figure}
 
-\FloatBarrier
 \subsection{Leltárazás}
 \begin{itemize}
 \item[] \textbf{azonosító: } UC2
 \item[] \textbf{aktorok: } Kezdeményező: vezető, támogató: adatbázis, raktáros.
 
-\item[] \textbf{stakeholderek: }
+\item[] \textbf{érdekeltek: }
 \vspace*{-3mm}
 \begin{itemize}
 \item[•] vezető: Célja a leltár automatizált végrehajtása, illetve a fizikai leltározás kezdeményezése. Fontos neki, hogy a folyamat végén egyetlen, áttekinthető dokumentumban láthassa az eredményt.
@@ -303,7 +302,7 @@ Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 \item[] \textbf{hatása: }
 A folyamat végén dokumentum készül, ami tartalmazza a fizikai leltár eredményét, illetve az elektronikus adatbázis összesítését.
 
-\item[] \textbf{alap forgatókönyv:}
+\item[] \textbf{alap forgatókönyv: }
 \begin{enumerate}
 \item A vezető bejelentkezik a rendszerbe.
 \item A vezető kezdeményezi a leltár elkezdését.
@@ -312,7 +311,7 @@ A folyamat végén dokumentum készül, ami tartalmazza a fizikai leltár eredm�
 \item A rendszer értesítést küld a raktárosnak a leltár elkezdéséről.
 \item A raktáros elvégzi a fizika leltározást.
 \item A raktáros beviszi a rendszerbe a számlálás eredményét.
-\item A rendszer reportot készít a két eredményből.
+\item A rendszer jelentést készít a két eredményből.
 \item A vezető kilép a rendszerből.
 \end{enumerate}
 \end{itemize} 
@@ -325,7 +324,7 @@ A folyamat végén dokumentum készül, ami tartalmazza a fizikai leltár eredm�
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=0.9\textwidth]{figures/leltarazas_UC.jpg}
+        \includegraphics[width=0.7\textwidth]{figures/leltarazas_UC.jpg}
         \caption{A leltározás use case diagramja.}
 \end{figure}
 
@@ -352,7 +351,7 @@ A folyamat végén dokumentum készül, ami tartalmazza a fizikai leltár eredm�
 \item Szerelő átadja a munkalapot a raktárosnak.
 \item A raktáros beviszi a munkalapon lévő adatokat a rendszerbe.
 \item A rendszer megjeleníti a szükséges alkatrészeket.
-\item A raktáros összegyűjti és vonalkódleolvasóval beolvassa a megjelenített alkatrészeket.
+\item A raktáros összegyűjti és vonalkód-leolvasóval beolvassa a megjelenített alkatrészeket.
 \item A rendszer frissíti az adatbázist.
 \item A raktáros kiadja az alkatrészeket. \\
 \textit{A folyamat a szerelőnél lévő összes munkalapra ismétlődik.}
@@ -398,7 +397,7 @@ A bejelentkezés eredményeképpen a felhasználó a jogosultsági szintjének m
 \subsection{Automatikus értesítés}
 \textbf{azonosító: } UC6 \\
 Az automatikus értesítést a rendszer küldi a vezetőknek, ha egy adott típusú alkatrész darabszáma a raktárban kettő alá csökken.
-A rendszer minden adatbázismódosításkor ellenőrzi a darabszámokat, és hiány esetén értesítést küld a vezetőknek, akik ezt a rendszerbe belépve megkapják.
+A rendszer minden adatbázis-módosításkor ellenőrzi a darabszámokat, és hiány esetén értesítést küld a vezetőknek, akik ezt a rendszerbe belépve megkapják.
 
 \subsection{Új berendezés bevitele}
 \textbf{azonosító: } UC7 \\
