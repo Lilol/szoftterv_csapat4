@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}\usepackage[left=20mm,right=20mm,top=15mm,bottom=20mm]{geometry}
+\documentclass[12pt]{article}\usepackage[left=20mm,right=20mm,top=20mm,bottom=20mm]{geometry}
 
 \usepackage[T1]{fontenc}
 \usepackage[magyar]{babel}
@@ -40,7 +40,7 @@
 %\newgeometry{left=50mm,right=2mm,top=98.5mm,bottom=10mm}
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=1.4\textwidth]{kepek/Domain_model.jpg}
+        \includegraphics[width=1.4\textwidth]{kepek/Domain_model.pdf}
         \caption{Domain modell. A domain modellben ábrázoltuk a valóságban lezajló azon főbb folyamatokat, amelyek meghatározóak lesznek a rendszer szempontjából is. Modellünkben a kezdeményezők mind személyek.
 A vezetőség tagjai kezdeményezik a leltározást, valamint állítják össze a rendeléseket.
 A rendszergazda nyilvántartja a felhasználókat.
@@ -60,10 +60,12 @@ A webes felület biztosítja a vezető számára, hogy a hiányzó alkatrészek 
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=\textwidth]{kepek/Rendeles_szekvencia.jpg}
+        \includegraphics[width=0.8\textwidth]{kepek/Rendeles_szekvencia.pdf}
         \caption{A rendelés szekvencia diagramja.}
 \end{figure}
 
+\thispagestyle{empty}
+\begin{landscape}
 \subsubsection{Alkatrészek kiadása}
 Az alkatrészek kiadását a raktáros végzi a szerelő által átadott munkalap alapján. 
 A raktáros az átadott munkalapon szereplő alkatrészeket kiveszi a raktárból, majd a vonalkód-leolvasóval leolvassa ezeket. 
@@ -72,17 +74,26 @@ Az esetleges alkatrészhiány kialakulását (amennyiben egy adott típusú alka
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=\textwidth]{kepek/kiadas_szekvencia.pdf}
+        \includegraphics[width=1.4\textwidth]{kepek/kiadas_szekvencia.pdf}
         \caption{Az alkatrészek kiadásának szekvencia diagramja.}
 \end{figure}
+\end{landscape}
 
-
+\thispagestyle{empty}
+\begin{landscape}
 \subsubsection{Leltározás kezdeményezése}
 Ha elérkezik a félévenkénti leltár ideje, a vezetőség egy tagja a rendszerbe belépve elindítja a leltár folyamatát. 
 A rendszer ennek hatására befagyasztja az adatbázist, valamint értesítést küld a raktárosnak a leltár megkezdéséről. 
 
 \noindent\textbf{Megjegyzés:} A leltározás fizikai eredményét (vagyis a raktárban ténylegesen tárolt alkatrészek számát típusok szerint) a raktáros viszi be a rendszerbe a leltár végén, amiről a vezetőség tagjai értesítést kapnak. 
 Ekkor az a szoftver összehasonlítja a fizikai leltár eredményét az adatbázissal, és azt áttekinthető formában megjeleníti. 
+
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=1.4\textwidth]{kepek/leltar_szekvencia.pdf}
+        \caption{A leltározás kezdeményezésének szekvencia diagramja.}
+\end{figure}
+\end{landscape}
 
 \subsection{Design Class Diagram}
 
