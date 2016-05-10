@@ -45,7 +45,7 @@
 A vezetőség tagjai kezdeményezik a leltározást, valamint állítják össze a rendeléseket.
 A rendszergazda nyilvántartja a felhasználókat.
 A raktáros felelős az alkatrészek tranzakcióiért (kiviteléért, beszállításkor azok raktárba tételéért), valamint ő a fizikai leltározás felelőse is. 
-Fontos az is, hogy ha adott típusú alkatrész száma kettő alá csökken, arról a vezetőség értesüljön, és a kritikus számú alkatrészek alapján tudja a rendelést összeállítani.}
+Fontos az is, hogy ha adott típusú alkatrész száma kettő alá csökken, arról a vezetőség tagjai értesüljenek, és a kritikus számú alkatrészek alapján tudja a rendelést összeállítani.}
 \end{figure}
 \end{landscape}
 
@@ -70,11 +70,18 @@ A raktáros az átadott munkalapon szereplő alkatrészeket kiveszi a raktárbó
 A rendszer összeállít egy listát a kivitt alkatrészekből, majd ezeket törli az adatbázisból.
 Az esetleges alkatrészhiány kialakulását (amennyiben egy adott típusú alkatrész száma kettő alá csökken) jelzi a vezetőségnek értesítő üzenetben. 
 
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=\textwidth]{kepek/kiadas_szekvencia.pdf}
+        \caption{Az alkatrészek kiadásának szekvencia diagramja.}
+\end{figure}
+
+
 \subsubsection{Leltározás kezdeményezése}
 Ha elérkezik a félévenkénti leltár ideje, a vezetőség egy tagja a rendszerbe belépve elindítja a leltár folyamatát. 
 A rendszer ennek hatására befagyasztja az adatbázist, valamint értesítést küld a raktárosnak a leltár megkezdéséről. 
 
-\textbf{Megjegyzés:} A leltározás fizikai eredményét (vagyis a raktárban ténylegesen tárolt alkatrészek számát típusok szerint) a raktáros viszi be a rendszerbe a leltár végén, amiről a vezetőség tagjai értesítést kapnak. 
+\noindent\textbf{Megjegyzés:} A leltározás fizikai eredményét (vagyis a raktárban ténylegesen tárolt alkatrészek számát típusok szerint) a raktáros viszi be a rendszerbe a leltár végén, amiről a vezetőség tagjai értesítést kapnak. 
 Ekkor az a szoftver összehasonlítja a fizikai leltár eredményét az adatbázissal, és azt áttekinthető formában megjeleníti. 
 
 \subsection{Design Class Diagram}
