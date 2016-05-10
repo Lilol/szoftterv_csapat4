@@ -41,31 +41,41 @@
 \begin{figure}[!h]
     \centering
         \includegraphics[width=1.4\textwidth]{kepek/Domain_model.jpg}
-        \caption{Domain modell.}
+        \caption{Domain modell. A domain modellben ábrázoltuk a valóságban lezajló azon főbb folyamatokat, amelyek meghatározóak lesznek a rendszer szempontjából is. Modellünkben a kezdeményezők mind személyek.
+A vezetőség tagjai kezdeményezik a leltározást, valamint állítják össze a rendeléseket.
+A rendszergazda nyilvántartja a felhasználókat.
+A raktáros felelős az alkatrészek tranzakcióiért (kiviteléért, beszállításkor azok raktárba tételéért), valamint ő a fizikai leltározás felelőse is. 
+Fontos az is, hogy ha adott típusú alkatrész száma kettő alá csökken, arról a vezetőség értesüljön, és a kritikus számú alkatrészek alapján tudja a rendelést összeállítani.}
 \end{figure}
 \end{landscape}
 
 \section{Design modell}
 \subsection{Use case-ek megvalósítása}
-A use case-ek megvalósítását szekvenciadiagramokon ábrázoltuk.
+A fontosabb use case-ek megvalósítását egy--egy szekvenciadiagramon ábrázoltuk, valamint egy egybefüggő design class diagramon szemléltettük a rendszer működését e három legfontosabb use case alapján.
 
 \subsubsection{Rendelés összeállítása}
-A rendelést a vezető kezdeményezi, amihez be kell lépnie a  szoftver weber felületén keresztül.
+A rendelést a vezető kezdeményezi, amihez be kell lépnie a  szoftver webes felületén keresztül.
 A rendelés alapja a hiányzó alkatrészek listája, amit a céges szerveren tárolt adatbázis szolgáltat. 
-A webes felület biztosítja a vezető számára, hogy a hiányzó alkatrészek listájának felhasználásával összeállítsa a rendelést, majd azt többféle formátumban exportálja a felületen keresztül.
+A webes felület biztosítja a vezető számára, hogy a hiányzó alkatrészek listájának felhasználásával, annak kiegészítésével összeállítsa a rendelést, majd azt többféle formátumban exportálja a felületen keresztül.
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=1.4\textwidth]{kepek/Rendeles_szekvencia.jpg}
+        \includegraphics[width=\textwidth]{kepek/Rendeles_szekvencia.jpg}
         \caption{A rendelés szekvencia diagramja.}
 \end{figure}
 
 \subsubsection{Alkatrészek kiadása}
-Az alkatrészek kiadását a raktáros végzi a szerelő által átadott munkalap alapján. A raktáros az átadott munkalapon szereplő alkatrészeket kiveszi a raktárból, majd a vonalkód-leolvasóval leolvassa ezeket. 
-A rendszer összeállít egy listát a kivitt alkatrészekből, és ezeket törli az adatbázisból.
-Az esetleges alkatrészhiány kialakulását (amennyiben egy adott típusú alkatrész száma kettő alá csökken) jelzi a vezetőségnek. 
+Az alkatrészek kiadását a raktáros végzi a szerelő által átadott munkalap alapján. 
+A raktáros az átadott munkalapon szereplő alkatrészeket kiveszi a raktárból, majd a vonalkód-leolvasóval leolvassa ezeket. 
+A rendszer összeállít egy listát a kivitt alkatrészekből, majd ezeket törli az adatbázisból.
+Az esetleges alkatrészhiány kialakulását (amennyiben egy adott típusú alkatrész száma kettő alá csökken) jelzi a vezetőségnek értesítő üzenetben. 
 
 \subsubsection{Leltározás kezdeményezése}
+Ha elérkezik a félévenkénti leltár ideje, a vezetőség egy tagja a rendszerbe belépve elindítja a leltár folyamatát. 
+A rendszer ennek hatására befagyasztja az adatbázist, valamint értesítést küld a raktárosnak a leltár megkezdéséről. 
+
+\textbf{Megjegyzés:} A leltározás fizikai eredményét (vagyis a raktárban ténylegesen tárolt alkatrészek számát típusok szerint) a raktáros viszi be a rendszerbe a leltár végén, amiről a vezetőség tagjai értesítést kapnak. 
+Ekkor az a szoftver összehasonlítja a fizikai leltár eredményét az adatbázissal, és azt áttekinthető formában megjeleníti. 
 
 \subsection{Design Class Diagram}
 
