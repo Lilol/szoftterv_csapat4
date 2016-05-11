@@ -202,6 +202,13 @@ Mivel egyetlen szerver áll rendelkezésre, az adatbázisba befutó kéréseket 
 A szoftvernek nem szükséges külső rendszerekkel együttműködni.
 
 \section{Use Case modell}
+
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=\textwidth]{kepek/use_case.pdf}
+        \caption{A teljes rendszer use case diagramja.}
+\end{figure}
+
 \subsection{Aktorok}
 \subsubsection{Elsődleges aktorok}
 \begin{itemize}
@@ -220,7 +227,7 @@ Szeretne időben értesítést kapni a leltár elkezdéséről.
 \item[•] \textbf{raktáros: } Célja, hogy a szerelőktől vagy a vezetőségtől érkező kéréseket gyorsan kiszolgálja, valamint egyszerűen intézze az alkatrészek átvételét.
 Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 
-\item[•] \textbf{adatbázis: } Adatokat tárol és szolgáltat. Kiszolgálja a beérkező kéréseket.
+\item[•] \textbf{alkatrésznyilvántartó rendszer: } Adatokat tárol és szolgáltat. Kiszolgálja a beérkező kéréseket.
 \end{itemize}
 
 \section{Legfontosabb use case-ek}
@@ -228,20 +235,20 @@ Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 \begin{itemize}
 \item[] \textbf{azonosító: } UC1
 
-\item[] \textbf{aktorok: } Elsődleges: vezető, támogató: adatbázis.  
+\item[] \textbf{aktorok: } Elsődleges: vezető.  
 
 \item[] \textbf{érdekeltek: } Vezető: Szeretné a rendszer keretein belül gyorsan összeállítani a szükséges alkatrészek rendelési listáját.
 
 \item[] \textbf{előfeltételek: } Egy adott típusú alkatrész készleteinek növelésére igény merül fel.
 
-\item[] \textbf{hatása: } Rendelési fájl generálódik, ami tarmazza a rendelt alkatrészek listáját.
+\item[] \textbf{hatása: } Rendelési fájl generálódik, ami tartalmazza a rendelt alkatrészek listáját.
 
 \item[] \textbf{alap forgatókönyv: }
 \begin{enumerate}
-\item Valamelyik típusú alkatrész száma kettő alá csökken.
+\item Igény merül fel valamilyen típusú alkatrészre.
 \item A vezető bejelentkezik.
-\item A vezető megnyitja a rendelésösszeállító ablakot.
-\item A vezető alkatrészt ad hozzá a rendeléshez, beállítja a rendelni kívánt alktrész darabszámát. \\
+\item A vezető megnyitja a rendelés-összeállító ablakot.
+\item A vezető alkatrészt ad hozzá a rendeléshez, beállítja a rendelni kívánt alkatrész darabszámát.
 \textit{A vezető az előző lépést a rendelés teljes összeállításáig ismétli.}
 \item A vezető exportálja az elkészült listát valamilyen formátumban (pdf, szöveg, táblázat).
 \item A vezető kilép a rendszerből.
@@ -249,10 +256,12 @@ Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 
 \item[] \textbf{alternatív forgatókönyv: }
 \begin{enumerate}
-\item Igény merül fel valamilyen típusú alkatrészre.
+\item Valamelyik típusú alkatrész száma kettő alá csökken.
 \item A vezető bejelentkezik.
 \item A vezető megnyitja a rendelés-összeállító ablakot.
-\item A vezető alkatrészt ad hozzá a rendeléshez, beállítja a rendelni kívánt alkatrész darabszámát.
+\item A vezető lekéri a hiányzó alkatrészek listáját.
+\item A vezető a listát hozzáadja a rendeléshez.
+\item A vezető alkatrészt ad hozzá a rendeléshez, beállítja a rendelni kívánt alkatrész darabszámát. \\
 \textit{A vezető az előző lépést a rendelés teljes összeállításáig ismétli.}
 \item A vezető exportálja az elkészült listát valamilyen formátumban (pdf, szöveg, táblázat).
 \item A vezető kilép a rendszerből.
@@ -271,20 +280,14 @@ Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=0.7\textwidth]{figures/rendeles_UC.jpg}
-        \caption{A rendelés use case diagramja.}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-        \includegraphics[width=0.7\textwidth]{figures/rendeles_SD.jpg}
-        \caption{A rendelés szekvenciadiagramja.}
+        \includegraphics[width=0.83\textwidth]{kepek/rendeles_SD.pdf}
+        \caption{A rendelés szekvenciadiagramja. \label{fig:rendeles}}
 \end{figure}
 
 \subsection{Leltárazás}
 \begin{itemize}
 \item[] \textbf{azonosító: } UC2
-\item[] \textbf{aktorok: } Kezdeményező: vezető, támogató: adatbázis, raktáros.
+\item[] \textbf{aktorok: } Kezdeményező: vezető, támogató: raktáros.
 
 \item[] \textbf{érdekeltek: }
 \vspace*{-3mm}
@@ -292,14 +295,12 @@ Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 \item[•] vezető: Célja a leltár automatizált végrehajtása, illetve a fizikai leltározás kezdeményezése. Fontos neki, hogy a folyamat végén egyetlen, áttekinthető dokumentumban láthassa az eredményt.
 
 \item[•] raktáros: Célja, hogy időben értesüljön arról, hogy el kell kezdenie a fizikai leltározást. 
-
-\item[•] adatbázis
 \end{itemize}
 
 \item[] \textbf{előfeltételek: } A folyamat előfeltétele, hogy az utolsó leltár óta félév eltelt, illetve vezetői jogosultsággal rendelkező felhasználó kezdeményezze.
 
 \item[] \textbf{hatása: }
-A folyamat végén dokumentum készül, ami tartalmazza a fizikai leltár eredményét, illetve az elektronikus adatbázis összesítését.
+A folyamat végén dokumentum készül, ami tartalmazza a fizikai leltár eredményét, illetve az elektronikus adatbázis összehasonlítását áttekinthető formában.
 
 \item[] \textbf{alap forgatókönyv: }
 \begin{enumerate}
@@ -317,75 +318,53 @@ A folyamat végén dokumentum készül, ami tartalmazza a fizikai leltár eredm�
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=0.9\textwidth]{figures/leltarazas_SD.jpg}
+        \includegraphics[width=0.67\textwidth]{kepek/leltarazas_SD.pdf}
         \caption{A leltározás szekvenciadiagramja.}
 \end{figure}
 
-\begin{figure}[!h]
-    \centering
-        \includegraphics[width=0.7\textwidth]{figures/leltarazas_UC.jpg}
-        \caption{A leltározás use case diagramja.}
-\end{figure}
-
-\FloatBarrier
 \subsection{Alkatrész kiadása}
 \begin{itemize}
 \item[] \textbf{azonosító: } UC3
-\item[] \textbf{aktorok: } Elsődleges: szerelő, támogató: adatbázis, raktáros, háttér: vezető.
+\item[] \textbf{aktorok: } Elsődleges: raktáros, támogató: vonalkód-leolvasó rendszer háttér: vezető.
 
 \item[] \textbf{érdekeltek: }
 \vspace*{-3mm}
 \begin{itemize}
-\item[•] szerelő: A szerelő célja, hogy a lehető leggyorsabban kézhez kapja a szükséges alkatrészeket.
 \item[•] raktáros: Célja, hogy a lehető legkevesebb adminisztrációval ki tudja szolgálni a szerelőt.
 \item[•] vezető: Érdekelt abban, hogy a szükségesnél több alkatrész ne kerüljön felhasználásra.
 \end{itemize}
 
-\item[] \textbf{előfeltételek: } Szerelő kézhez kapja a munkalapot.
+\item[] \textbf{előfeltételek: } A raktáros megkapja a munkalapot a szerelőtől.
 
-\item[] \textbf{hatása: } Szerelő megkapja a szükséges alkatrészeket, a kiadás rögzítésre kerül az adatbázisban.
+\item[] \textbf{hatása: } A raktáros átadja a megfelelő alkatrészeket a szerelőnek, a kiadás rögzítésre kerül az adatbázisban.
 
 \item[] \textbf{alap forgatókönyv: }
 \begin{enumerate}
-\item Szerelő átadja a munkalapot a raktárosnak.
 \item A raktáros beviszi a munkalapon lévő adatokat a rendszerbe.
 \item A rendszer megjeleníti a szükséges alkatrészeket.
 \item A raktáros összegyűjti és vonalkód-leolvasóval beolvassa a megjelenített alkatrészeket.
-\item A rendszer frissíti az adatbázist.
-\item A raktáros kiadja az alkatrészeket. \\
-\textit{A folyamat a szerelőnél lévő összes munkalapra ismétlődik.}
+\item A raktáros lezárja a kiadást.
+\item A rendszer értesítést küld a vezetőnek, ha a tranzakció hatására valamely alkatrész száma kettő alá csökkenne.
 \end{enumerate}
 
 \item[] \textbf{alternatív forgatókönyv:} \\
-Ha adott alkatrészből nem áll rendelkezésre megfelelő mennyiség, akkor a folyamat a következőképpen módosul a 3. ponttól kezdve:
+Ha adott alkatrészből nem áll rendelkezésre megfelelő mennyiség, akkor a folyamat a következőképpen módosul a 2. ponttól kezdve:
 \begin{enumerate}
 \item A rendszer kiírja, hogy adott alkatrész hiányzik.
 \item A raktáros törli az adott munkalapot.
-\item A raktáros visszaadja a munkalapot a szerelőnek.
-\item A rendszer értesítést küld a vezetőnek az alkatrésztípus hiányáról.
 \end{enumerate}
-
-\item[] \textbf{különleges követelmények: } Vonalkódleolvasó eszköz.
 \end{itemize} 
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=0.9\textwidth]{figures/alkatresz_kiadas_SD.jpg}
+        \includegraphics[width=\textwidth]{kepek/alkatresz_kiadas_SD.pdf}
         \caption{Az alkatrész kiadás szekvenciadiagramja.}
 \end{figure}
 
-\begin{figure}[!h]
-    \centering
-        \includegraphics[width=0.9\textwidth]{figures/alkatresz_kiadas_UC.jpg}
-        \caption{Az alkatrész kiadás use case diagramja.}
-\end{figure}
-
-
-\FloatBarrier
 \subsection{User nyilvántartás}
 \textbf{azonosító: } UC4 \\
 A rendszergazda a rendszerbe belépve beviszi a számára kialakított beviteli felületen az új munkatársak adatait, jogosultságokat rendel hozzájuk, módosításokat végez, vagy törli őket. 
-A folyamat eredményeképpen a kollégák adatainak változásai megjelennek az adatbázisban.
+A folyamat eredményeképpen a kollégák adatainak változásai megjelennek a rendszerben.
 
 \subsection{Bejelentkezés}
 \textbf{azonosító: } UC5 \\
@@ -400,7 +379,7 @@ A rendszer minden adatbázis-módosításkor ellenőrzi a darabszámokat, és hi
 
 \subsection{Új berendezés bevitele}
 \textbf{azonosító: } UC7 \\
-Ha módosul a szervizelt berendezések listája, a vezetőség az adatbázist belépés után kiegészítheti az új berendezéssel, valamint a hozzá szükséges alkatrészek listájával.
+Ha módosul a szervizelt berendezések listája, a vezetőség a rendszer nyilvántartását belépés után kiegészítheti az új berendezéssel, valamint a hozzá szükséges alkatrészek listájával.
 
 \subsection{Backlog lekérdezése}
 \textbf{azonosító: } UC8 \\
