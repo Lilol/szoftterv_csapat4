@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}\usepackage[left=20mm,right=20mm,top=15mm,bottom=20mm]{geometry}
+\documentclass[12pt]{article}\usepackage[left=20mm,right=20mm,top=14mm,bottom=20mm]{geometry}
 
 \usepackage[T1]{fontenc}
 \usepackage[magyar]{babel}
@@ -15,6 +15,7 @@
 \usepackage{placeins}
 \usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage{pdflscape}
 
 %\DeclareUnicodeCharacter{00A0}{~}
 
@@ -79,32 +80,34 @@ A rendszernek alkalmasnak kell lennie arra, hogy az adatbázisban lévő alkatr�
 
 
 \subsection{Érdekeltek köre - stakeholderek}
-\begin{itemize}
-\item[] \textbf{vezető: } A vezető végzi az alkatrészek megrendelését, kezdeményezi a leltározást, továbbá bevihet új berendezéseket az adatbázisba. Célja a raktár kiürülésének megakadályozása, valamint a fent említett munkafolyamatok gyorsítása, automatizálása.
+\textbf{vezető: } A vezető végzi az alkatrészek megrendelését, kezdeményezi a leltározást, továbbá bevihet új berendezéseket az adatbázisba. Célja a raktár kiürülésének megakadályozása, valamint a fent említett munkafolyamatok gyorsítása, automatizálása.
+\vspace{4mm}
 
-\item[] \textbf{szerelő: } A szerelő végzi a gépek javítását, e célból alkatrészeket kér ki a raktárból.  Célja, hogy a szükséges alkatrészek rendelkezésre álljanak, valamint hogy a kivétel gyors legyen.
+\noindent\textbf{szerelő: } A szerelő végzi a gépek javítását, e célból alkatrészeket kér ki a raktárból.  Célja, hogy a szükséges alkatrészek rendelkezésre álljanak, valamint hogy a kivétel gyors legyen.
+\vspace{4mm}
 
-\item[] \textbf{raktáros: } A raktáros az a személy, aki a szerelőknek kiadja az alkatrészeket, valamint a beszállítóktól átveszi azokat. Emellett a kézi leltározást végzi. Célja, hogy egyszerűen adminisztrálja a raktár tranzakcióit, valamint értesítést kapjon a leltárazás elkezdéséről.
+\noindent\textbf{raktáros: } A raktáros az a személy, aki a szerelőknek kiadja az alkatrészeket, valamint a beszállítóktól átveszi azokat. Emellett a kézi leltározást végzi. Célja, hogy egyszerűen adminisztrálja a raktár tranzakcióit, valamint értesítést kapjon a leltárazás elkezdéséről.
+\vspace{4mm}
 
-\item[] \textbf{rendszergazda: } A rendszergazda a rendszer karbantartását végzi, valamint ő felelős új munkatársak nyilvántartásának naprakészen tartásáért. Célja, hogy a rendszer egyszerűen karbantartható, visszaállítható és bővíthető legyen.
-\end{itemize}
+\noindent\textbf{rendszergazda: } A rendszergazda a rendszer karbantartását végzi, valamint ő felelős új munkatársak nyilvántartásának naprakészen tartásáért. Célja, hogy a rendszer egyszerűen karbantartható, visszaállítható és bővíthető legyen.
 
 \subsection{Rendszer részei}
-\begin{itemize}
-\item[] \textbf{adatbázis: } Nyilvántartás, ami tartalmazza a kollégákat, a gépeket, azok alkatrészeit, valamint a gépekben található alkatrészeket, valamint a raktári tranzakciókat, ezen kívül az éves leltár eredményét. A rendszeres biztonsági mentések segítségével az adatbázis állapota bármikor visszaállítható. Megkönnyíti és gyorsítja a cégen belüli adminisztrációt, valamint segíti hiba esetén a rendszer visszaállítását.
+\noindent\textbf{adatbázis: } Nyilvántartás, ami tartalmazza a kollégákat, a gépeket, azok alkatrészeit, valamint a gépekben található alkatrészeket, valamint a raktári tranzakciókat, ezen kívül az éves leltár eredményét. A rendszeres biztonsági mentések segítségével az adatbázis állapota bármikor visszaállítható. Megkönnyíti és gyorsítja a cégen belüli adminisztrációt, valamint segíti hiba esetén a rendszer visszaállítását.
+\vspace{4mm}
 
-\item[] \textbf{grafikus felület (GUI): } A grafikus felhasználói felület megjeleníti a szükséges adatokat, valamint lehetővé teszi új adatok bevitelét a rendszerbe. 
+\noindent\textbf{grafikus felület (GUI): } A grafikus felhasználói felület megjeleníti a szükséges adatokat, valamint lehetővé teszi új adatok bevitelét a rendszerbe. 
 A GUI átlagfelhasználó számára is lehetővé teszi a rendszer használatát, az adatbázisba való adminisztrációt. 
+\vspace{4mm}
 
-\item[] \textbf{adatbázis--GUI interfész: } Az adatbázist és grafikus felületet összekötő interfész, ami lekérdezéseket hajt végre az adatbázisban, valamint a lekérdezések eredményét és az ezekből származtatott adatokat továbbítja a grafikus felületnek.
+\noindent\textbf{adatbázis--GUI interfész: } Az adatbázist és grafikus felületet összekötő interfész, ami lekérdezéseket hajt végre az adatbázisban, valamint a lekérdezések eredményét és az ezekből származtatott adatokat továbbítja a grafikus felületnek.
 Ez az interfész megkönnyíti az adatbázis kezelését.
+\vspace{4mm}
 
-\item[] \textbf{azonosítófelület: } Az azonosítófelület megakadályozza az illetéktelen hozzáférést. Ennek segítségével beállíthatók a jogosultságok, valamint ellenőrizhető, hogy egyes műveleteket ki és mikor végzett.
+\noindent\textbf{azonosítófelület: } Az azonosítófelület megakadályozza az illetéktelen hozzáférést. Ennek segítségével beállíthatók a jogosultságok, valamint ellenőrizhető, hogy egyes műveleteket ki és mikor végzett.
+\vspace{4mm}
 
-\item[] \textbf{lehetőség távoli hozzáférésre: } Távoli elérés lehetőségét biztosító rendszerrész, aminek segítségével a kollégák hálózaton keresztül is kezdeményezhetnek bizonyos műveleteket.
-
-\item[] \textbf{vonalkódleolvasó--vonalkódfeldolgozó: } Beolvassa és értelmezi az alkatrészek vonalkódjait, ezzek egyszerűbbé téve az adminisztrációt.
-\end{itemize}
+\noindent\textbf{lehetőség távoli hozzáférésre: } Távoli elérés lehetőségét biztosító rendszerrész, aminek segítségével a kollégák hálózaton keresztül is kezdeményezhetnek bizonyos műveleteket.
+\vspace{4mm}
 
 \subsection{Rendszer korlátai, határai}
 \subsubsection{A rendszer feladatainak határai}
@@ -119,29 +122,36 @@ Szerverként egyetlen gép áll rendelkezésre, amely csak korlátozott számú 
 A kollégák által használt számítógépek elavult, asztali gépek korlátos erőforrásokkal, továbbá programok telepítésére és törlésére csak a rendszergazdának van jogosultsága.
 
 \section{Fogalomszótár}
-\begin{itemize}
-\item[]\textbf{berendezés: } A cég által szervizelt gép.
+\noindent\textbf{berendezés: } A cég által szervizelt gép.
+\vspace{4mm}
 
-\item[]\textbf{alkatrész: } A gépek építőelemei, amiket raktárban tárol a cég. 
+\noindent\textbf{alkatrész: } A gépek építőelemei, amiket raktárban tárol a cég. 
+\vspace{4mm}
 
-\item[]\textbf{szerelő: } A gépek szervizelését végzi. Alkatrészeket vesz ki a raktárból.
+\noindent\textbf{szerelő: } A gépek szervizelését végzi. Alkatrészeket vesz ki a raktárból.
+\vspace{4mm}
 
-\item[]\textbf{vezető: } Az az ember, aki felelős az alkatrészek rendeléséért, illetve a leltározás elrendeléséért.
+\noindent\textbf{vezető: } Az az ember, aki felelős az alkatrészek rendeléséért, illetve a leltározás elrendeléséért.
+\vspace{4mm}
 
-\item[]\textbf{raktáros: } Kezeli a raktárat: kiadja a szerelőnek a neki szükséges alkatrészeket, átveszi a szállító által szállított alkatrészeket, valamint elvégzi a manuális leltárazást.
+\noindent\textbf{raktáros: } Kezeli a raktárat: kiadja a szerelőnek a neki szükséges alkatrészeket, átveszi a szállító által szállított alkatrészeket, valamint elvégzi a manuális leltárazást.
+\vspace{4mm}
 
-\item[]\textbf{szállítólevél: } Az a dokumentum, ami tartalmazza az adott szállítmányban található alkatrészek típusait és darabszámát.
+\noindent\textbf{szállítólevél: } Az a dokumentum, ami tartalmazza az adott szállítmányban található alkatrészek típusait és darabszámát.
+\vspace{4mm}
 
-\item[]\textbf{munkalap: } Az a dokumentum, ami tartalmazza a javítandó berendezéshez szükséges alkatrészeket. 
+\noindent\textbf{munkalap: } Az a dokumentum, ami tartalmazza a javítandó berendezéshez szükséges alkatrészeket. 
+\vspace{4mm}
 
-\item[]\textbf{rendszergazda: } A cég azon alkalmazottja, aki a kezeli a munkatársak jogosultságait, valamint a rendszer karbantartását végzi.
+\noindent\textbf{rendszergazda: } A cég azon alkalmazottja, aki a kezeli a munkatársak jogosultságait, valamint a rendszer karbantartását végzi.
+\vspace{4mm}
 
-\item[]\textbf{rendelés: } Az a dokumentum, ami tartalmazza a megrendelni kívánt alkatrészek darabszámát és típusát.
+\noindent\textbf{rendelés: } Az a dokumentum, ami tartalmazza a megrendelni kívánt alkatrészek darabszámát és típusát.
+\vspace{4mm}
 
-\item[]\textbf{leltározás: } Az a folyamat, amelynek során a tényleges raktárkészletet összehasonlítják a nyilvántartással.
+\noindent\textbf{leltározás: } Az a folyamat, amelynek során a tényleges raktárkészletet összehasonlítják a nyilvántartással.
 
-\item[]\textbf{jelentés: } A leltározás során készült dokumentum, ami összehasonlítható formában tartalmazza a fizikai számlálás és az elektronikus nyilvántartás eredményeit.
-\end{itemize}
+\noindent\textbf{jelentés: } A leltározás során készült dokumentum, ami összehasonlítható formában tartalmazza a fizikai számlálás és az elektronikus nyilvántartás eredményeit.
 
 \section{Kiegészítő követelmények leírása}
 
@@ -199,7 +209,7 @@ A jogosultságok korlátozása miatt a grafikus felületnek böngészőben megje
 Mivel egyetlen szerver áll rendelkezésre, az adatbázisba befutó kéréseket ennek kell elvárható időn belül (1 s) kiszolgálnia.
 
 \subsection{Interfészek}
-A szoftvernek nem szükséges külső rendszerekkel együttműködni.
+\noindent\textbf{vonalkódleolvasó--vonalkódfeldolgozó rendszer: } A rendszer kapcsolatban áll egy vonalkód-értelmező szoftverrel, amely beolvassa és értelmezi az alkatrészek vonalkódjait, majd a beolvasott alkatrész azonosítóját továbbküldi az alkatrész-nyilvántartó rendszernek.
 
 \section{Use Case modell}
 
@@ -231,19 +241,23 @@ Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 \end{itemize}
 
 \section{Legfontosabb use case-ek}
-\subsection{Rendelés}
-\begin{itemize}
-\item[] \textbf{azonosító: } UC1
+\subsection{Rendelés (\ref{fig:rendeles}.~ábra)}
+\noindent\textbf{azonosító: } UC1
+\vspace{4mm}
 
-\item[] \textbf{aktorok: } Elsődleges: vezető.  
+\noindent\textbf{aktorok: } Elsődleges: vezető.  
+\vspace{4mm}
 
-\item[] \textbf{érdekeltek: } Vezető: Szeretné a rendszer keretein belül gyorsan összeállítani a szükséges alkatrészek rendelési listáját.
+\noindent\textbf{érdekeltek: } Vezető: Szeretné a rendszer keretein belül gyorsan összeállítani a szükséges alkatrészek rendelési listáját.
+\vspace{4mm}
 
-\item[] \textbf{előfeltételek: } Egy adott típusú alkatrész készleteinek növelésére igény merül fel.
+\noindent\textbf{előfeltételek: } Egy adott típusú alkatrész készleteinek növelésére igény merül fel.
+\vspace{4mm}
 
-\item[] \textbf{hatása: } Rendelési fájl generálódik, ami tartalmazza a rendelt alkatrészek listáját.
+\noindent\textbf{hatása: } Rendelési fájl generálódik, ami tartalmazza a rendelt alkatrészek listáját.
+\vspace{4mm}
 
-\item[] \textbf{alap forgatókönyv: }
+\noindent\textbf{alap forgatókönyv: }
 \begin{enumerate}
 \item Igény merül fel valamilyen típusú alkatrészre.
 \item A vezető bejelentkezik.
@@ -253,8 +267,9 @@ Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 \item A vezető exportálja az elkészült listát valamilyen formátumban (pdf, szöveg, táblázat).
 \item A vezető kilép a rendszerből.
 \end{enumerate}
+\vspace{4mm}
 
-\item[] \textbf{alternatív forgatókönyv: }
+\noindent\textbf{alternatív forgatókönyv: }
 \begin{enumerate}
 \item Valamelyik típusú alkatrész száma kettő alá csökken.
 \item A vezető bejelentkezik.
@@ -266,43 +281,49 @@ Szeretné, hogy fenti munkafolyamatok jól dokumentáltak legyenek.
 \item A vezető exportálja az elkészült listát valamilyen formátumban (pdf, szöveg, táblázat).
 \item A vezető kilép a rendszerből.
 \end{enumerate}
+\vspace{4mm}
 
-\item[] \textbf{különleges követelmények: } A rendelést csak vezetői jogosultsággal rendelkező személy végezheti.
+\noindent\textbf{különleges követelmények: } A rendelést csak vezetői jogosultsággal rendelkező személy végezheti.
+\vspace{4mm}
 
-\item[] \textbf{technológiai variánsok: } \\Az elkészült rendelés exportálható többféle fájlformátumban:
+\noindent\textbf{technológiai variánsok: } \\Az elkészült rendelés exportálható többféle fájlformátumban:
 \vspace*{-3mm}
 \begin{itemize}
 \item[•] xls
 \item[•] pdf
 \item[•] txt
 \end{itemize}
-\end{itemize} 
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=0.83\textwidth]{kepek/rendeles_SD.pdf}
+        \includegraphics[width=\textwidth]{kepek/rendeles_SD.pdf}
         \caption{A rendelés szekvenciadiagramja. \label{fig:rendeles}}
 \end{figure}
 
-\subsection{Leltárazás}
-\begin{itemize}
-\item[] \textbf{azonosító: } UC2
-\item[] \textbf{aktorok: } Kezdeményező: vezető, támogató: raktáros.
+\subsection{Leltárazás (\ref{fig:leltar}.~ábra)}
+\noindent\textbf{azonosító: } UC2
+\vspace{4mm}
 
-\item[] \textbf{érdekeltek: }
+\noindent\textbf{aktorok: } Kezdeményező: vezető, támogató: raktáros.
+\vspace{4mm}
+
+\noindent\textbf{érdekeltek: }
 \vspace*{-3mm}
 \begin{itemize}
 \item[•] vezető: Célja a leltár automatizált végrehajtása, illetve a fizikai leltározás kezdeményezése. Fontos neki, hogy a folyamat végén egyetlen, áttekinthető dokumentumban láthassa az eredményt.
 
 \item[•] raktáros: Célja, hogy időben értesüljön arról, hogy el kell kezdenie a fizikai leltározást. 
 \end{itemize}
+\vspace{4mm}
 
-\item[] \textbf{előfeltételek: } A folyamat előfeltétele, hogy az utolsó leltár óta félév eltelt, illetve vezetői jogosultsággal rendelkező felhasználó kezdeményezze.
+\noindent\textbf{előfeltételek: } A folyamat előfeltétele, hogy az utolsó leltár óta félév eltelt, illetve vezetői jogosultsággal rendelkező felhasználó kezdeményezze.
+\vspace{4mm}
 
-\item[] \textbf{hatása: }
+\noindent\textbf{hatása: }
 A folyamat végén dokumentum készül, ami tartalmazza a fizikai leltár eredményét, illetve az elektronikus adatbázis összehasonlítását áttekinthető formában.
+\vspace{4mm}
 
-\item[] \textbf{alap forgatókönyv: }
+\noindent\textbf{alap forgatókönyv: }
 \begin{enumerate}
 \item A vezető bejelentkezik a rendszerbe.
 \item A vezető kezdeményezi a leltár elkezdését.
@@ -314,31 +335,35 @@ A folyamat végén dokumentum készül, ami tartalmazza a fizikai leltár eredm�
 \item A rendszer jelentést készít a két eredményből.
 \item A vezető kilép a rendszerből.
 \end{enumerate}
-\end{itemize} 
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=0.67\textwidth]{kepek/leltarazas_SD.pdf}
-        \caption{A leltározás szekvenciadiagramja.}
+        \includegraphics[width=\textwidth]{kepek/leltarazas_SD.pdf}
+        \caption{A leltározás szekvenciadiagramja.\label{fig:leltar}}
 \end{figure}
 
-\subsection{Alkatrész kiadása}
-\begin{itemize}
-\item[] \textbf{azonosító: } UC3
-\item[] \textbf{aktorok: } Elsődleges: raktáros, támogató: vonalkód-leolvasó rendszer háttér: vezető.
+\subsection{Alkatrész kiadása (\ref{fig:kiadas}.~ábra)}
+\noindent\textbf{azonosító: } UC3
+\vspace{4mm}
 
-\item[] \textbf{érdekeltek: }
+\noindent\textbf{aktorok: } Elsődleges: raktáros, támogató: vonalkód-leolvasó rendszer háttér: vezető.
+\vspace{4mm}
+
+\noindent\textbf{érdekeltek: }
 \vspace*{-3mm}
 \begin{itemize}
 \item[•] raktáros: Célja, hogy a lehető legkevesebb adminisztrációval ki tudja szolgálni a szerelőt.
 \item[•] vezető: Érdekelt abban, hogy a szükségesnél több alkatrész ne kerüljön felhasználásra.
 \end{itemize}
+\vspace{4mm}
 
-\item[] \textbf{előfeltételek: } A raktáros megkapja a munkalapot a szerelőtől.
+\noindent\textbf{előfeltételek: } A raktáros megkapja a munkalapot a szerelőtől.
+\vspace{4mm}
 
-\item[] \textbf{hatása: } A raktáros átadja a megfelelő alkatrészeket a szerelőnek, a kiadás rögzítésre kerül az adatbázisban.
+\noindent\textbf{hatása: } A raktáros átadja a megfelelő alkatrészeket a szerelőnek, a kiadás rögzítésre kerül az adatbázisban.
+\vspace{4mm}
 
-\item[] \textbf{alap forgatókönyv: }
+\noindent\textbf{alap forgatókönyv: }
 \begin{enumerate}
 \item A raktáros beviszi a munkalapon lévő adatokat a rendszerbe.
 \item A rendszer megjeleníti a szükséges alkatrészeket.
@@ -346,19 +371,19 @@ A folyamat végén dokumentum készül, ami tartalmazza a fizikai leltár eredm�
 \item A raktáros lezárja a kiadást.
 \item A rendszer értesítést küld a vezetőnek, ha a tranzakció hatására valamely alkatrész száma kettő alá csökkenne.
 \end{enumerate}
+\vspace{4mm}
 
-\item[] \textbf{alternatív forgatókönyv:} \\
+\noindent\textbf{alternatív forgatókönyv:} \\
 Ha adott alkatrészből nem áll rendelkezésre megfelelő mennyiség, akkor a folyamat a következőképpen módosul a 2. ponttól kezdve:
 \begin{enumerate}
 \item A rendszer kiírja, hogy adott alkatrész hiányzik.
 \item A raktáros törli az adott munkalapot.
 \end{enumerate}
-\end{itemize} 
 
 \begin{figure}[!h]
     \centering
         \includegraphics[width=\textwidth]{kepek/alkatresz_kiadas_SD.pdf}
-        \caption{Az alkatrész kiadás szekvenciadiagramja.}
+        \caption{Az alkatrész kiadás szekvenciadiagramja.\label{fig:kiadas}}
 \end{figure}
 
 \subsection{User nyilvántartás}
@@ -401,4 +426,75 @@ Az ennek eredményeképpen létrejövő fájl segítségével a rendszergazda hi
 \textbf{azonosító: } UC11 \\
 Hiba fellépése esetén a rendszergazda egy biztonsági mentés segítségével a rendszert vissza tudja vinni korábbi állapotába.
 
+\thispagestyle{empty}
+\begin{landscape}
+\section{Domain modell}
+%\newgeometry{left=50mm,right=2mm,top=98.5mm,bottom=10mm}
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=1.4\textwidth]{kepek/Domain_model.pdf}
+        \caption{Domain modell. A domain modellben ábrázoltuk a valóságban lezajló azon főbb folyamatokat, amelyek meghatározóak lesznek a rendszer szempontjából is. Modellünkben a kezdeményezők mind személyek.
+A vezetőség tagjai kezdeményezik a leltározást, valamint állítják össze a rendeléseket.
+A rendszergazda nyilvántartja a felhasználókat.
+A raktáros felelős az alkatrészek tranzakcióiért (kiviteléért, beszállításkor azok raktárba tételéért), valamint ő a fizikai leltározás felelőse is. 
+Fontos az is, hogy ha adott típusú alkatrész száma kettő alá csökken, arról a vezetőség tagjai értesüljenek, és a kritikus számú alkatrészek listája alapján tudja a rendelést összeállítani.}
+\end{figure}
+\end{landscape}
+
+\section{Design modell}
+\subsection{Use case-ek megvalósítása}
+A fontosabb use case-ek megvalósítását egy--egy szekvenciadiagramon ábrázoltuk, valamint egy egybefüggő design class diagramon szemléltettük a rendszer működését e három legfontosabb use case alapján.
+
+\subsubsection{Rendelés összeállítása}
+A rendelést a vezető kezdeményezi, amihez be kell lépnie a  szoftver webes felületén keresztül.
+A rendelés alapja a hiányzó alkatrészek listája, amit a céges szerveren tárolt adatbázis szolgáltat. 
+A webes felület biztosítja a vezető számára, hogy a hiányzó alkatrészek listájának felhasználásával, annak kiegészítésével összeállítsa a rendelést, majd azt többféle formátumban exportálja a felületen keresztül.
+
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=0.8\textwidth]{kepek/Rendeles_szekvencia.pdf}
+        \caption{A rendelés szekvencia diagramja.}
+\end{figure}
+
+\thispagestyle{empty}
+\begin{landscape}
+\subsubsection{Alkatrészek kiadása}
+Az alkatrészek kiadását a raktáros végzi a szerelő által átadott munkalap alapján. 
+A raktáros az átadott munkalapon szereplő alkatrészeket kiveszi a raktárból, majd a vonalkód-leolvasóval leolvassa ezeket. 
+A rendszer összeállít egy listát a kivitt alkatrészekből, majd ezeket törli az adatbázisból.
+Az esetleges alkatrészhiány kialakulását (amennyiben egy adott típusú alkatrész száma kettő alá csökken) jelzi a vezetőségnek értesítő üzenetben. 
+
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=1.4\textwidth]{kepek/kiadas_szekvencia.pdf}
+        \caption{Az alkatrészek kiadásának szekvencia diagramja.}
+\end{figure}
+\end{landscape}
+
+\thispagestyle{empty}
+\begin{landscape}
+\subsubsection{Leltározás kezdeményezése}
+Ha elérkezik a félévenkénti leltár ideje, a vezetőség egy tagja a rendszerbe belépve elindítja a leltár folyamatát. 
+A rendszer ennek hatására befagyasztja az adatbázist, valamint értesítést küld a raktárosnak a leltár megkezdéséről. 
+\vspace{5mm}
+
+\noindent\textbf{Megjegyzés:} A leltározás fizikai eredményét (vagyis a raktárban ténylegesen tárolt alkatrészek számát típusok szerint) a raktáros viszi be a rendszerbe a leltár végén, amiről a vezetőség tagjai értesítést kapnak. 
+Ekkor az a szoftver összehasonlítja a fizikai leltár eredményét az adatbázissal, és azt áttekinthető formában megjeleníti. 
+
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=1.4\textwidth]{kepek/leltar_szekvencia.pdf}
+        \caption{A leltározás kezdeményezésének szekvencia diagramja.}
+\end{figure}
+\end{landscape}
+
+\thispagestyle{empty}
+\begin{landscape}
+\subsection{Design Class Diagram}
+\begin{figure}[!h]
+    \centering
+        \includegraphics[width=1.4\textwidth]{kepek/dcd.pdf}
+        \caption{A rendszer design class diagramja.}
+\end{figure}
+\end{landscape}
 \end{document}
